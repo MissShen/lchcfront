@@ -1,0 +1,180 @@
+<template>
+  <el-dialog
+    :title="'选择药品'"
+    :close-on-click-modal="false"
+    width="75%"
+    :visible.sync="visible">
+    <el-form :model="query" ref="query" label-width="150px" label-position="left" :inline="true" size="small" class="table-form">
+          <el-form-item>
+            <el-select v-model="query.searchType">
+              <el-option label="名称" value="0"></el-option>
+              <el-option label="编码" value="1"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-input v-model="query.searchText" placeholder="关键词"
+                      @keyup.enter.native="searchEnterFun"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="success" @click="list">查询</el-button>
+            <el-button type="warning" @click="resetForm">重置</el-button>
+          </el-form-item>
+    </el-form>
+
+    <div class="tableset">
+      <el-table
+        ref="table"
+        :data="resData.list"
+        @sort-change="sortChange"
+        border
+        stripe>
+        <el-table-column label="编码" sortable="custom" prop="CODE">
+          <template slot-scope="scope">
+            <span>{{scope.row.code }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="名称" sortable="custom" prop="NAME_CHN">
+          <template slot-scope="scope">
+            <span>{{ scope.row.nameChn }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="60">
+          <template slot-scope="scope">
+            <div class="operates">
+              <span><a class="operation-btn" @click="chooseDrugCode(scope.row)">选择</a></span>
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+
+    <!-- 表格分页 -->
+    <div class="pagebox">
+      <el-pagination
+        layout="total, sizes, prev, pager, next, jumper"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :page-sizes="[10, 20, 30]"
+        :total="resData.total"
+        :page-size="resData.pageSize"
+        :page-count="resData.pages"
+        :current-page.sync="resData.pageNum">
+      </el-pagination>
+    </div>
+    <span slot="footer">
+      <el-button size="small" @click="close()">关闭</el-button>
+    </span>
+
+  </el-dialog>
+</template>
+
+<script>
+  import ElCol from "element-ui/packages/col/src/col";
+  import {query8Drugs} from 'src/axios/datacenter/authdata/otcdrugs/catOtc'
+
+  export default {
+    components: {ElCol},
+    name: "commonDrugsCode",
+    data() {
+      return {
+        visible: false,
+        type: '',
+        data: '',
+        resData: this.metaData(),
+        query: this.metaQuery()
+      }
+    },
+
+    methods: {
+
+      sortChange(value){
+        let sortType = " desc";
+        if (value.order != null) {
+          if (value.order.startsWith("asc")) {
+            sortType = " asc";
+          }
+          this.query.orderBy = value.prop + sortType;
+          this.list()
+        }
+      },
+
+      fillData() {
+        this.visible = true;
+        this.list();
+      },
+
+      list(){
+        query8Drugs(this.query, this.resData, null).then(res => {
+          this.resData = res.data;
+          if (this.resData.pageNum == 0) {
+            this.resData.pageNum = 1
+          }
+        })
+      },
+
+      searchEnterFun: function (e) {
+        var keyCode = window.event ? e.keyCode : e.which;
+        if (keyCode == 13) {
+          this.list();
+        }
+      },
+
+      chooseDrugCode(value) {
+        this.$emit('chooseDrugCode', {value: value});
+        this.visible = false;
+      },
+
+      resetForm() {
+        this.query = this.metaQuery();
+        this.resData = this.metaData;
+        this.list();
+      },
+
+      close(){
+        this.$refs.table.clearSelection();
+        this.query = this.metaQuery();
+        this.resData = this.metaData;
+        this.visible = false;
+      },
+
+      metaData () {
+        return {// 前后台交互数据封装格式
+          pageNum: 1,
+          pageSize: 10,
+          size: 10,
+          startRow: 0,
+          endRow: 0,
+          total: 0,
+          pages: 0,
+          prePage: 0,
+          nextPage: 0,
+          isFirstPage: false,
+          isLastPage: true,
+          hasPreviousPage: false,
+          hasNextPage: false,
+          navigatePages: 8,
+          navigatepageNums: [],
+          navigateFirstPage: 0,
+          navigateLastPage: 0,
+          firstPage: 0,
+          lastPage: 0,
+        }
+      },
+      metaQuery () {
+        return {
+          searchType: "0",
+          searchText: ""
+        }
+      },
+
+      handleSizeChange (val) {
+        this.resData.pageSize = val;
+        this.list()
+      },
+      handleCurrentChange (val) {
+        this.resData.pageNum = val;
+        this.list()
+      }
+    }
+  }
+</script>

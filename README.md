@@ -1,6 +1,3 @@
-# beijing-project
-
-> A Beijing Project
 
 ## Build Setup
 

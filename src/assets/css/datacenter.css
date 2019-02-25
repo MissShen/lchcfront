@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/*-- 分类维护 --*/
+.classify-left{
+  display: table-cell;
+  width:380px;
+  overflow-x: auto;
+  border-right:1px solid #ccc;
+  padding-top: 10px;
+}
+.classify-right{
+  display: table-cell;
+  padding: 10px;
+}
+.tree-from{
+  padding: 0 15px 20px;
+}
+.tree-from h3{
+  font-size: 16px;
+  font-weight:bold;
+  color:#333;
+  line-height:35px;
+  margin-top: 0;
+}
+.classify-wrapper{
+  width: 380px;
+  overflow-x: auto;
+  min-height: calc(100vh - 194px);
+}
+.code-wrapper{
+  margin-bottom: 0!important;
+  font-size: 0;
+}
+.code-wrapper span{
+  display: inline-block;
+  margin-right: 1%;
+  width: 9%;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.code-content{
+  font-size: 0;
+}
+.code-choose{
+  display: inline-block;
+  margin-right: 1%;
+  width: 9%;
+  position: relative;
+}
+.code-choose input{
+  padding: 0 35px 0 7px;
+}
+.choose-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 32px;
+  font-size: 12px;
+  padding: 0 5px;
+  border-left: 1px solid #dcdfe6;
+}
+.atc-code-choose{
+  display: inline-block;
+}
+.side{
+  /*position: absolute;*/
+  /*width: 150px;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+}
+.side-init{
+  position: absolute;
+  width: 150px;
+  margin: 0;
+  padding: 0;
+}
+.side-scroll{
+  position: fixed;
+  width: 150px;
+  margin: 0;
+  padding: 0;
+  top:0;
+}
+.formrow .date-group .date-group-child{
+  width: 180px!important;
+}
+.editor-wrapper .edui-editor,.drug-instruct-editor .edui-editor{
+  z-index: 10!important;
+}
+.editor-wrapper .edui-notadd .edui-editor-toolbarbox{
+  position: relative!important;
+}
+.drug-instruct-editor .edui-notadd .edui-editor-toolbarbox{
+  position: relative!important;
+}
+.drug-instruct-editor .edui-editor div{
+  height: auto!important;
+}
+.width-auto{
+  width: auto!important;
+}
+.img-pre-text{
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 12px;
+  color: #66cc66 !important;
+}
+.margin-left5{
+  margin-left: 5px!important;
+}
+.margin-left5 .el-radio__label{
+  padding-left: 5px!important;
+}
+.catRadio .el-form-item__content{
+  width: 110px!important;
+}
+.el-form-item__label .el-select .el-input .el-input__inner,.el-form-item__label .el-select .el-input .el-input__inner:focus{
+    border-color: #dcdfe6!important;
+}

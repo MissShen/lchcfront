@@ -1,0 +1,221 @@
+@charset "utf-8";
+
+/*-- 地区复选框 --*/
+.regular-checkbox {
+  display: none;
+}
+.regular-checkbox + label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-color:#5FB878;
+  height:30px;
+  line-height: 28px;
+  margin-right:10px;
+  padding-right:30px;
+  border:1px solid #d2d2d2;
+  cursor:pointer;
+  font-size:0;
+  border-radius:2px;
+}
+.regular-checkbox + label > span{
+  display: inline-block;
+  background:#c2c2c2;
+  padding:0 10px;
+  height:100%;
+  font-size:14px;
+  color:#fff;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.regular-checkbox:checked + label{
+  border:1px solid #5FB878;
+}
+.regular-checkbox:checked + label > span{
+  background:#5FB878;
+}
+.regular-checkbox:checked + label > i {
+  position:absolute;
+  width:30px;
+  color:#5FB878;
+  font-size:20px;
+  text-align: center;
+}
+.regular-checkbox:checked + label >i:after {
+  content: '\2714';
+  color: #5FB878;
+}
+.cities-box{
+  margin:0 10px;
+}
+.cities-title{
+  display: table;
+  padding-left:15px;
+  margin:10px 0;
+  cursor:pointer;
+  color:#333;
+}
+.cities-title >[type="checkbox"]{
+  display: table-cell;
+  vertical-align: middle;
+}
+.cities-box > ul{
+  padding: 0 40px;
+}
+.cities-box > ul >li {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.areas-box{
+  clear: both;
+  margin:10px;
+  border-top:1px solid #ddd;
+}
+.citys-con{
+  padding:0 40px;
+  overflow: hidden;
+}
+.area-Btn{
+  margin-top:20px;
+  clear:both;
+}
+.drugCon{
+  font-size: 12px;
+  color: #c0c4cc;
+}
+.icon-htsx::before{ color:#25c118;content:"\e69e";padding-right: 5px;}
+.icon-ygz{
+  display: inline-block;
+  background: url("../../assets/images/icon-ygz.png") no-repeat;
+  padding-left:25px;
+}
+.icon-jiechu{
+  display: inline-block;
+  background: url("../../assets/images/icon-jiechu.png") no-repeat;
+  padding-left:25px;
+}
+
+.contract-box {
+  position: relative;
+}
+.contract-box > h1 {
+  padding: 5px 20px;
+  margin: 0;
+  line-height: 1.5;
+  text-align:center;
+  font-size: 16pt;
+  font-weight: normal;
+}
+.contract-box > h3 {
+  padding: 5px 20px;
+  margin: 0;
+  line-height: 1.5;
+  text-align:center;
+  font-size: 12pt;
+  font-weight: normal;
+}
+.contract-main {
+  padding: 0 20px;
+  margin: 0 0 20px;
+}
+.contract-members {
+  font-size:12pt;
+  line-height: 1.5;
+}
+.contract-members > p {
+  padding: 5px 0;
+  margin: 0;
+}
+.contract-list-title {
+  padding: 0;
+  margin: 10px 0;
+  font-size:11pt;
+  line-height: 2;
+}
+.dash {
+  padding: 0;
+  margin: 15px 0;
+  border:none;
+  border-bottom: 1px dashed #E4E7EA;
+}
+.contract-content {
+  text-indent: 30px;
+  margin-bottom: 50px;
+
+}
+.contract-content > p {
+  padding: 0;
+  marging: 10px 0 0;
+}
+.contract-seal {
+  display: table;
+  width: 100%;
+}
+.contract-seal > ul:first-child{
+  height: 180px;
+}
+.contract-seal > ul {
+  display: table-row;
+}
+.contract-seal > ul > li {
+  position: relative;
+  display: table-cell;
+  width: 50%;
+  padding: 40px 0 10px 10%;
+  vertical-align: top;
+}
+.contract-seal > ul > li img {
+  position: absolute;
+  top: 0;
+  right: 30%;
+}
+.ico-status{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+  margin-right: 5px;
+}
+.ico-ty{
+  background: url(../images/icon-status.png) no-repeat;
+}
+.ico-clz{
+  background: url(../images/icon-status.png) 0 -20px no-repeat;
+}
+.ico-jc{
+  background: url(../images/icon-status.png) 0 -40px no-repeat;
+}
+.ico-juj{
+  background: url(../images/icon-status.png) 0 -60px no-repeat;
+}
+.ico-njc{
+  background: url(../images/icon-status.png) 0 -80px no-repeat;
+}
+.tabs-echo-ul{
+  display:table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.tabs-echo-ul > li{
+  display: table-cell;
+  width: 30%;
+  padding-left: 20px;
+  font-size:14px;
+  line-height:35px;
+  overflow: hidden;
+  height: 35px;
+  color: #888;
+  overflow: hidden;
+}
+.tabs-echo-ul > li > span{
+  color: #333;
+}
+
+.compact-data-new{
+  background: #bbe2ba!important;
+}
+.delete-data-new{
+  background: #e6da3c57!important
+}
