@@ -108,48 +108,7 @@ export const baseRouterMap = [
     redirect:"/logIn",
     component: r => require.ensure([], () => r(require('src/pages/management/login/layLogin')),'manage'),
     children: [
-      {
-        path: 'logIn',
-        name: 'login',
-        meta: {title: '登录', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/logIn')),'manage')
-      },
-      {//通知公告
-        path: 'affiche',
-        name: 'affiche',
-        meta:{title:'通知公告', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/affiche')),'manage')
-      },
-      {//联系我们
-        path: 'contactUs',
-        name: 'contactUs',
-        meta:{title:'联系我们', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/contactus')),'manage')
-      },
-      {//阳光讲堂
-        path: 'classRoom',
-        name: 'classRoom',
-        meta:{title:'阳光讲堂', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/classroom')),'manage')
-      },
-      {//下载中心
-        path: 'downLoad',
-        name: 'downLoad',
-        meta:{title:'下载中心', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/download')),'manage')
-      },
-      {//互动答疑
-        path: 'interact',
-        name: 'interact',
-        meta:{title:'互动答疑', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/interact')),'manage')
-      },
-      {//购药服务指引
-        path: 'service',
-        name: 'service',
-        meta:{title:'购药服务指引', perm:['none']},
-        component: r => require.ensure([], () => r(require('src/pages/management/login/service')),'manage')
-      }
+
     ]
   },
   {

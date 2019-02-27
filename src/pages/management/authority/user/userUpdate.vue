@@ -74,7 +74,7 @@
   import {isNotNull, numberLineAZ} from "src/utils/validateUtil";
   import catOrg from './catOrg'
   import {mapGetters} from 'vuex'
-  import {GetSignCert, GetCertEntityByOid, inintCALogin} from "src/assets/XTXSAB"
+  import {GetSignCert, GetCertEntityByOid} from "src/assets/XTXSAB"
 
   export default {
     name: "userUpdate",
@@ -284,7 +284,7 @@
         }
       },
       initBindKey() {
-        inintCALogin(this.packUsbKeyUser);
+
       }
     },
   }

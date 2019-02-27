@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-  import {unLoginFaqList} from "src/axios/login/service";
+
 
   export default {
     name: 'interact',

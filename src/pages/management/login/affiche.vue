@@ -26,10 +26,8 @@
 </template>
 <script>
   import {PageData} from 'src/components/mixins'
-  import {unLoginNoticeList} from "src/axios/management/subsidiary/notice";
-  import PageBar from "../../../components/layout/page-bar";
-  import noticeViewFrom from 'src/pages/management/subsidiary/notice/sysNoticeView'
-  export default {
+   import PageBar from "../../../components/layout/page-bar";
+   export default {
     name: 'affiche',
     components: {PageBar,noticeViewFrom},
     mixins:[PageData],

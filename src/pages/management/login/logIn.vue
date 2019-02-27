@@ -48,79 +48,7 @@
                 </el-form>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="KEY登录" name="second">
-              <div class="login-form">
-                <el-form id="loginKeyForm" name="loginKeyForm" :model="loginKeyForm" :rules="keyRules"
-                         ref="loginKeyForm">
-                  <el-form-item prop="UserListKey">
-                    <i class="icon icon-user"></i>
-                    <el-select name="UserListKey" v-model="loginKeyForm.UserListKey" clearable
-                               prop="UserListKey">
-                      <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                      </el-option>
-                    </el-select>
-                  </el-form-item>
-                  <el-form-item prop="password" class="nomar">
-                    <i class="icon icon-pw"></i>
-                    <el-input name="password" :type="passwordType" v-model="loginKeyForm.password"
-                              autoComplete="on" placeholder="证书口令"/>
-                  </el-form-item>
-                  <input type="hidden" ID="UserSignedData" name="UserSignedData" v-model="loginKeyForm.userSignedData">
-                  <input type="hidden" ID="UserCert" name="UserCert" v-model="loginKeyForm.userCert">
-                  <input type="hidden" ID="ContainerName" name="ContainerName" v-model="loginKeyForm.containerName">
-                  <input type="hidden" ID="strRandom" name="strRandom" v-model="loginKeyForm.strRandom">
-                  <a href="" class="login-zs">证书下载</a>
-                  <el-form-item>
-                    <el-button type="primary" @click="submitKeyForm('loginKeyForm')">登录</el-button>
-                  </el-form-item>
-                </el-form>
-              </div>
-            </el-tab-pane>
           </el-tabs>
-        </div>
-      </div>
-      <div class="content">
-        <div class="notice-title">
-          <h4>NOTICE</h4>
-          <p>通知公告</p>
-          <div class="login_hr">
-            <span><a href="javaScript:;" class="icon-notice"></a></span>
-          </div>
-        </div>
-        <div class="notice-zt">
-          <p v-if="resData.list.length>0"><a @click="openAffiche()">更多</a></p>
-          <div class="notice">
-            <ul class="notice-list">
-              <li v-for="(item,index) in resData.list" @click="handleNoticeView(item.id)" @mouseover="overShow(index)"
-                  @mouseout="outHide(index)">
-                <a>{{item.noticeTitle}}</a>
-                <span>{{item.createDate}}</span>
-                <div class="notice-content" v-if="index == noticeShow">
-                  <div class="text" v-text="getContent(item.noticeContent)"></div>
-                  <a href="javascript:;" @click="handleNoticeView(item.id)">详细&raquo;</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-      <div class="classroom-zt">
-        <div class="content">
-          <div class="notice-title">
-            <h4>LETURES</h4>
-            <p>阳光讲堂</p>
-            <div class="login_hr">
-              <span><a href="javaScript:;" class="icon-notice"></a></span>
-            </div>
-            <div class="video-container">
-              <img src="../../../assets/images/classroom.png"/>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -130,12 +58,8 @@
   import {mapGetters} from 'vuex'
   import router from 'src/router'
   import {validCode} from "src/axios/login/login";
-  import {caInit} from "src/axios/login/calogin";
-  import {uuid} from "src/utils";
-  import {unLoginNoticeLimitList} from "src/axios/management/subsidiary/notice";
-  import noticeViewFrom from 'src/pages/management/subsidiary/notice/sysNoticeView'
-  import {
-    inintCALogin,
+   import {uuid} from "src/utils";
+   import {
     SetUserCertList,
     GetDateNotBefore,
     SignedData,
@@ -430,8 +354,6 @@
       },
       handleClick(tab) {
         if (tab.name === "second") {
-          inintCALogin(this.packUsbKeyUser);
-          // SetUserCertList("loginKeyForm.UserListKey", CERT_TYPE_HARD);
         }
       },
       overShow(index) {

@@ -1,5 +1,4 @@
 import {userLogin, userPerms, refreshToken} from "src/axios/login/login";
-import {caLogin, caInitBind, caKeyLogin} from "src/axios/login/calogin";
 
 const user = {
   state: {

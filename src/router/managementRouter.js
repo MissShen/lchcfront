@@ -58,68 +58,7 @@ export const managementMap = [
         component: r => require.ensure([], () => r(require('src/pages/management/authority/shortcut/shortcutMenu')),'manage')
       },
     ]
-  },
-  {
-    path: '/subsidiary',
-    name: 'subsidiary',
-    meta: {title: '辅助功能', sys: 'MANAGEMENT', perm: ['sys:subsidiary:index']},
-    component: LayOut,
-    children: [
-      {
-        path: 'sysNotice',
-        name: 'sysNotice',
-        meta: {title: '公告管理', perm: ['sys:menu:notice','sys:notice:menu:shortcut','sys:notice:menu:shortcut2']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/notice/sysNotice')),'manage')
-      },
-      {
-        path: 'sysNoticeList',
-        name: 'sysNoticeList',
-        meta: {title: '公告列表', hidden: true, perm: ['login']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/notice/sysNoticeList')),'manage')
-      },
-      {
-        path: 'log',
-        name: 'log',
-        meta: {title: '日志列表', hidden: true, perm: ['login']},
-        component: r => require.ensure([], () => r(require('src/pages/management/authority/log/operationLog')),'manage')
-      },
-      {
-        path: 'sysMessage',
-        name: 'sysMessage',
-        meta: {title: '消息管理', perm: ['sys:menu:message']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/message/sysMessage')),'manage')
-      },
-      {
-        path: 'messageTypeForm/:tid',
-        name: 'messageTypeForm',
-        meta: {
-          title: '消息类别详情',
-          hidden: true,
-          perm: ['sys:message_type:list', 'sys:message_type:save', 'sys:message_type:update']
-        },
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/message/formView')),'manage')
-      },
-      {
-        path: 'sysLetures',
-        name: 'sysLetures',
-        meta: {title: '阳光讲堂', perm: ['sys:menu:letures']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/letures/sysLetures')),'manage')
-      },
-      {
-        path: 'noticeForm/:nid',
-        name: 'noticeForm',
-        meta: {title: '公告详情', hidden: true, perm: ['sys:notice:view', 'sys:notice:save', 'sys:notice:update']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/notice/formView')),'manage')
-      },
-      {
-        path: 'noticeView/:nid',
-        name: 'noticeView',
-        meta: {title: '公告查看', hidden: true, perm: ['sys:notice:view']},
-        component: r => require.ensure([], () => r(require('src/pages/management/subsidiary/notice/noticeView')),'manage')
-      }
-    ]
-  },
-  {
+  }, {
     path: '/userCenter',
     name: 'userCenter',
     meta: {title: '账户管理', sys: 'MANAGEMENT', perm: ['login']},
@@ -138,12 +77,7 @@ export const managementMap = [
         meta: {title: '个人资料', hidden: true, perm: ['login']},
         component: r => require.ensure([], () => r(require('src/pages/management/user-manage/userInfo')),'manage')
       },
-      {
-        path: 'bindKey',
-        name: 'bindKey',
-        meta: {title: '绑定账号', hidden: true, perm: ['login']},
-        component: r => require.ensure([], () => r(require('src/pages/management/user-manage/bindKey')),'manage')
-      }
+
     ]
   }
 ];

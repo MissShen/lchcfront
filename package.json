@@ -1,7 +1,7 @@
 {
-  "name": "beijing-project",
+  "name": "lchc-project",
   "version": "1.0.0",
-  "description": "A Beijing Project",
+  "description": "A LCHC Project",
   "author": "jz0180206",
   "private": true,
   "scripts": {

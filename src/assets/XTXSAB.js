@@ -94,49 +94,6 @@ var yxd_user_cb = null;
   return;
 })();*/
 
-export function inintCALogin(cb) {
-  // if (cb) {
-  yxd_user_cb = cb;
-  if ($_$CurrentObj) {
-    $_$CurrentObj.GetUserList(cb);
-    return;
-  }
-  // }
-  //GetPic实例obj
-  $_$GetPicObj = CreateGetPicObject();
-
-
-  $_$WebSocketObj = CreateWebSocketObject();
-  if ($_$WebSocketObj != null) {
-    $_$CurrentObj = $_$WebSocketObj;
-    return;
-  }
-
-  $_$XTXAppObj = CreateXTXAppObject();
-  if ($_$XTXAppObj != null) {
-    $_$CurrentObj = $_$XTXAppObj;
-    return;
-  }
-
-  $_$SecXV2Obj = CreateSecXV2Object();
-  if ($_$SecXV2Obj != null) {
-    $_$CurrentObj = $_$SecXV2Obj;
-    return;
-  }
-
-  $_$SecXObj = CreateSecXObject();
-  if ($_$SecXObj != null) {
-    $_$CurrentObj = $_$SecXObj;
-    return;
-  }
-
-
-  $_$CurrentObj = null;
-
-  $XTXAlert("检查证书应用环境出错!");
-  return;
-}
-
 // set auto logout parameters
 function SetAutoLogoutParameter(strCertID, logoutFunc) {
   $_$loginCertID = strCertID;

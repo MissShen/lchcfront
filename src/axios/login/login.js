@@ -9,7 +9,7 @@ export function userLogin(data) {
     url: '/unifiedlogin/sso/login',
     method: 'post',
     loading: false,
-    data: {userName: data.userName, passWord: data.passWord, validCode: data.validCode, uuid: data.uuid}
+    data: {userName: data.userName, passWord: data.passWord}
   })
 }
 

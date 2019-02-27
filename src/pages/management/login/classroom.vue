@@ -1,7 +1,6 @@
 <template>
   <div>
-    <unlogin-letures-view v-if="unloginViewVisible" ref="unloginViewVisible"></unlogin-letures-view>
-    <unlogin-letures-item v-if="unloginItemVisible" ref="unloginItemVisible"></unlogin-letures-item>
+
     <div class="login-main">
       <div class="classroom"></div>
       <div class="classroom-box">
@@ -29,10 +28,8 @@
   </div>
 </template>
 <script>
-  import {unLoginLeturesVoList, unLoginDownloadLeturesFile} from "src/axios/management/subsidiary/letures";
-  import fileUpload from 'js-file-download'
-  import UnloginLeturesView from 'src/pages/management/subsidiary/letures/unlogin-letures-view'
-  import UnloginLeturesItem from 'src/pages/management/subsidiary/letures/unlogin-letures-item'
+   import fileUpload from 'js-file-download'
+
 
   export default {
     name: 'classroom',

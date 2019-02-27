@@ -8,9 +8,7 @@
 
 <script>
 
-  import {getIpAndPort} from 'src/axios/management/subsidiary/message'
-  import NewsMsg from 'src/components/NewsMsg'
-  import {mapGetters} from 'vuex'
+   import {mapGetters} from 'vuex'
 
   export default {
     name: 'App',

@@ -218,9 +218,7 @@
 
 <script>
   import {mapGetters} from 'vuex'
-  import {queryBulletinList} from "src/axios/management/subsidiary/notice"
-  import {noticeMessageList, userMessageList, messageChangeList} from "src/axios/management/subsidiary/message";
-  import {
+    import {
     todoOfData,
     todoOfContract,
     todoOfAudit,
@@ -230,14 +228,12 @@
     getAllComplaint,
     queryUnnormalInfoList
   } from "src/axios/management/todo/to";
-  import noticeViewFrom from 'src/pages/management/subsidiary/notice/sysNoticeView'
-  import UserMessage from 'src/pages/management/subsidiary/message/userMessage'
-  import noticeYellowpage from 'src/pages/management/login/noticeYellowpage'
-  import {findRouterPathByTitle} from "src/utils";
+
+   import {findRouterPathByTitle} from "src/utils";
 
   export default {
     name: "IndexGeneral",
-    components: {noticeViewFrom, UserMessage, noticeYellowpage},
+    components: {},
     computed: {
       ...mapGetters([
         'accountType',
@@ -382,8 +378,7 @@
       },
       // 公告更多
       openAffiche() {
-        this.$router.push({path: '/subsidiary/sysNoticeList'});
-      },
+           },
       metaQuery() { // 查询数据封装格式
         return {
           queryType: '1',

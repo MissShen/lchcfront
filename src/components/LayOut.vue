@@ -54,9 +54,7 @@
             <li>
               <router-link to="/userCenter/resetPwd">修改密码</router-link>
             </li>
-            <li>
-              <router-link to="/userCenter/bindKey">绑定账号</router-link>
-            </li>
+
             <li><a @click="logout">退出登录</a></li>
           </ul>
         </li>

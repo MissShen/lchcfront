@@ -1,34 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from 'src/store'
-// import Message from 'element-ui'
+
 import {baseRouterMap} from "src/router/baseRouterMap";
-// import {demoMap} from 'src/router/demoRouter'  //demo路由
+import {demoMap} from 'src/router/demoRouter'  //demo路由
 import {managementMap} from 'src/router/managementRouter'  //综合管理路由
-import {tradeRouterMap} from "src/router/tradeRouter";//交易系统路由
-import {contractRouterMap} from "src/router/contractRouter";//合同系统路由
-// import {newsBulletinMap} from "src/router/newsbulletin";//消息公告路由
-import {auditchangesMap} from "src/router/auditchangesRouter"
-import {dataCenterRouterMap} from "src/router/dataCenterRouter"
-import {superviseMap} from "src/router/superviseRouter"; // 监管系统路由
 import {isNotNull} from "../utils/validateUtil";
 
 Vue.use(Router)
-/*let _asyncRouterMap = [];
-if(store.getters.roleIds.indexOf('CMGR00000000000000500638')===-1){
-  console.log(1);
-  _asyncRouterMap = managementMap.concat(dataCenterRouterMap,auditchangesMap,contractRouterMap,tradeRouterMap,superviseMap);
-}else{
-  console.log(2);
-  _asyncRouterMap = managementMap.concat(dataCenterRouterMap);
-}
-export const asyncRouterMap = _asyncRouterMap;*/
-// export const asyncRouterMap=managementMap.concat(dataCenterRouterMap,auditchangesMap,contractRouterMap,tradeRouterMap,superviseMap);
-export const asyncRouterMap=managementMap.concat(dataCenterRouterMap,auditchangesMap,contractRouterMap,tradeRouterMap,superviseMap);
+
+export const asyncRouterMap=managementMap.concat();
 
 const router = new Router({
   routes: baseRouterMap
-  // mode: 'history'
 });
 
 export default router;

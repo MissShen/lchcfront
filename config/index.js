@@ -12,54 +12,11 @@ module.exports = {
     assetsPublicPath: '/',
 
     proxyTable: {                            //代理规则
-      '/yxdDataCenter/**': {
-        target: 'http://172.16.9.60:7002',        // 数据中心接口域名
-        // target: 'http://172.16.2.41:7002',        // 数据中心接口域名
+      '/**': {
+        target: 'http://127.0.0.1:8888',
         secure: false,
         changeOrigin: false
-      },
-      '/unifiedlogin/**': {
-        target: 'http://172.16.9.60:7000',        // 接口的域名 - 【综合登录】
-        // target: 'http://172.16.2.209:7008',        // 接口的域名 - 张鹏
-        secure: false,
-        changeOrigin: false,
-      },
-      '/management/**': {
-        target: 'http://172.16.9.60:7001',        // 接口的域名 - 【综合管理】
-        // target: 'http://172.16.2.128:8081',        // 接口的域名 - 贾海港
-        secure: false,
-        changeOrigin: false,
-      },
-      '/auditchanges/**': {
-        target: 'http://172.16.9.60:7003',        // 接口的域名 - 【资审系统】
-        secure: false,
-        changeOrigin: false,
-      },
-      '/trade/**': {
-        target: 'http://172.16.9.60:7006',        // 接口的域名 - 【交易】
-        secure: false,
-        changeOrigin: false
-      },
-      '/contract/**': {
-        target: 'http://172.16.9.60:7005',        // 接口的域名 - 【合同】
-        secure: false,
-        changeOrigin: false
-      },
-      '/select/**': {
-        target: 'http://172.16.9.60:7004',        // 接口的域名 - 【遴选】
-        secure: false,
-        changeOrigin: false
-      },
-      '/supervision/**': {
-        target: 'http://172.16.9.60:7007',        // 接口的域名 - 【监管】
-        secure: false,
-        changeOrigin: false
-      },
-      // '/rabbitmq/**': {
-      //   target: 'http://172.16.9.60:7008',        // 接口的域名 - 【消息】
-      //   secure: false,
-      //   changeOrigin: false
-      // }
+      }
     },
 
     // Various Dev Server settings
