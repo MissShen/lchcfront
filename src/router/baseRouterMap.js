@@ -105,10 +105,15 @@ export const baseRouterMap = [
     path: '/',
     name: 'logIn',
     meta: {title: '登录', perm:['none']},
-    //redirect:"/logIn",
+    redirect:"/logIn",
     component: r => require.ensure([], () => r(require('src/pages/management/login/layLogin')),'manage'),
     children: [
-
+      {
+        path: 'logIn',
+        name: 'login',
+        meta: {title: '登录', perm:['none']},
+        component: r => require.ensure([], () => r(require('src/pages/management/login/logIn')),'manage')
+      }
     ]
   },
   {

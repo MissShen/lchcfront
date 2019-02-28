@@ -58,22 +58,10 @@
   import router from 'src/router'
   import {validCode} from "src/axios/login/login";
    import {uuid} from "src/utils";
-   import {
-    GetDateNotBefore,
-    SignedData,
-    VerifyUserPIN,
-    GetUserPINRetryCount,
-    GetSignCert,
-    GetCertBasicinfo,
-    GetDateNotAfter,
-    VerifySignedData
-  } from "src/assets/XTXSAB"
-  import {CERT_OID_NOT_BEFORE, CERT_OID_NOT_AFTER} from "src/assets/XTXSAB"
 
   export default {
     name: 'logIn',
     components: {
-
     },
     computed: {
       ...mapGetters([
@@ -195,9 +183,7 @@
           this.$refs.noticeView.metaList(id)
         })
       },
-      openAffiche() {
-        this.$router.push({path: '/affiche'});
-      },
+
       submitForm(formName) {
         this.showErrorMsg = false;
         this.$refs[formName].validate((valid) => {
@@ -222,134 +208,6 @@
           }
         });
 
-      },
-      submitKeyForm(formName) {
-        var _this = this
-        var strServerSignedData = ''
-        var strServerRan = ''
-        var strServerCert = ''
-        this.$refs[formName].validate((valid) => {
-
-          if (valid) {
-            var strCertID = _this.loginKeyForm.UserListKey
-            var strPin = _this.loginKeyForm.password
-            //  第一步:获取服务器证书:strServerCert,随机数strServerRan，随机数签名strServerSignedData
-            caInit().then(res => {
-              strServerSignedData = res.data.strSignedData
-              strServerRan = res.data.strRandom
-              strServerCert = res.data.strServerCert
-              _this.loginKeyForm.strRandom = strServerRan
-              _this.loginKeyForm.containerName = strCertID
-
-            }).then(() => {
-              // 第二步: 验证用户密码： params=证书ID,证书密码
-              VerifyUserPIN(strCertID, strPin, function (retObj) {
-                if (!retObj.retVal) {
-                  GetUserPINRetryCount(strCertID, function (retObj) {
-                    var retryCount = Number(retObj.retVal);
-                    if (retryCount > 0) {
-                      alert("校验证书密码失败!您还有" + retryCount + "次机会重试!");
-                      return;
-                    } else if (retryCount == 0) {
-                      alert("您的证书密码已被锁死,请联系BJCA进行解锁!");
-                      return;
-                    } else {
-                      alert("登录失败!");
-                      return;
-                    }
-                  });
-                  return;
-                }
-                //strClientCert
-                //第三步: 通过证书ID获取用户证书 params=证书ID
-                GetSignCert(strCertID, function (retObj) {
-                  var strUserCert = retObj.retVal;
-                  if (strUserCert == "") {
-                    alert("导出用户证书失败!");
-                    return;
-                  }
-                  _this.loginKeyForm.userCert = strUserCert;
-                  //  ..辅助：证书基本信息校验
-                  GetCertBasicinfo(strUserCert, CERT_OID_NOT_BEFORE, function (retObj) {
-                    var notBeforeDate = GetDateNotBefore(retObj.retVal);
-                    var days = parseInt((notBeforeDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
-                    if (days > 0) {
-                      alert("您的证书尚未生效!距离生效日期还剩" + days + "天!");
-                      return;
-                    }
-
-                    var strUserCert = _this.loginKeyForm.userCert;
-                    GetCertBasicinfo(strUserCert, CERT_OID_NOT_AFTER, function (retObj) {
-                      var notAfterDate = GetDateNotAfter(retObj.retVal);
-                      var milliseconds = notAfterDate.getTime() - new Date().getTime();
-                      if (milliseconds < 0) {
-                        alert("您的证书已过期，请尽快到北京数字证书认证中心办理证书更新手续！");
-                        return;
-                      }
-                      // 第四步:客户端验证服务端证书以及随机数签名  params=服务器证书，随机数，随机数的签名
-                      VerifySignedData(strServerCert, strServerRan, strServerSignedData,
-                        function (retObj) {
-                          if (!retObj.retVal) {
-                            alert("验证服务器端信息失败!");
-                            return;
-                          }
-
-                          var strCertID = _this.loginKeyForm.UserListKey;
-                          // 第五步：使用客户端证书ID-进行签名-随机数  params=证书ID,随机数
-                          // 返回签名后的数据
-                          SignedData(strCertID, strServerRan, function (retObj) {
-                            if (retObj.retVal == "") {
-                              alert("客户端签名失败!");
-                              return;
-                            }
-                            _this.loginKeyForm.userSignedData = retObj.retVal;
-
-                            _this.$store.dispatch('LoginCA', _this.loginKeyForm).then((res) => {
-                              if (res.code == '200') {
-                                const resources = res.data.resourceList;
-                                _this.$store.dispatch('generateRoutes', {resources}).then(() => {
-                                  router.addRoutes(_this.addRouters); // 动态添加可访问路由表
-                                });
-                                _this.$router.push({path: '/IndexGeneral'});
-                              } else if (res.code == '501') {
-                                _this.$resMessage(res);
-                                _this.$router.push({path: '/keyRegister'});
-                              } else {
-                                _this.$resMessage(res);
-                                _this.$router.push({path: '/logIn'});
-                              }
-                            }).catch((res) => {
-                              if (res.code == '501') {
-                                _this.$resMessage(res);
-                                // _this.$router.push({path: '/keyRegister'});
-                              }
-                              // this.loading = false;
-                              _this.$router.push({path: '/logIn'});
-                            })
-
-                          });
-                        });
-                    });
-                  });
-                });
-
-                // caTestLogin(_this.loginKeyForm).then(res => {
-                //   // let fileName=res.headers['Content-Disposition'].split('filename=')[1];
-                //   // let contentType=res.headers['content-Type'];
-                //   console.info(res.data)
-                //   fileUpload(res.data,"1.xls","application/vnd.ms-excel")
-                // })
-
-              });
-
-            })
-
-
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
       },
       handleClick(tab) {
         if (tab.name === "second") {
@@ -376,29 +234,7 @@
           this.resData = res.data;
           0 === this.resData.pageNum ? this.resData.pageNum = 1 : null;
         })
-      },
-      packUsbKeyUser(retObj) {
-        let USB_KEY_USER = [];
-        this.options = [];
-        this.loginKeyForm.UserListKey = '';
-        if (retObj && retObj.retVal) {
-          let strUserList = retObj.retVal;
-          while (true) {
-            let i = strUserList.indexOf("&&&");
-            if (i <= 0) {
-              break;
-            }
-            let strOneUser = strUserList.substring(0, i);
-            let strName = strOneUser.substring(0, strOneUser.indexOf("||"));
-            let strCertID = strOneUser.substring(strOneUser.indexOf("||") + 2, strOneUser.length);
-            USB_KEY_USER.push({label: strName, value: strCertID});
-            let len = strUserList.length;
-            strUserList = strUserList.substring(i + 3, len);
-          }
-          this.options = USB_KEY_USER;
-        }
-      },
-
+      }
     },
   }
 </script>
