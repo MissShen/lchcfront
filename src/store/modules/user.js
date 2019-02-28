@@ -72,14 +72,14 @@ const user = {
               res.data.resourceList.forEach(resource => {
                 perms[resource.permissionName] = true
               });
-              commit('SET_PERMS', perms);
-              commit('SET_LOGIN_CODE', res.data.userName);
-              commit('SET_LOGIN_ID', res.data.loginId);
-              commit('SET_ORG_ID', res.data.orgId);
-              commit('SET_ROLE_IDS', res.data.roleIds);
-              commit('SET_ROLE_NAMES', res.data.roleNames);
-              commit('SET_ACCOUNT_TYPE', res.data.accountType);
-              commit('SET_USER_IMAGE', res.data.userImage);
+              // commit('SET_PERMS', perms);
+              // commit('SET_LOGIN_CODE', res.data.code);
+              // commit('SET_LOGIN_ID', res.data.loginId);
+              // commit('SET_ORG_ID', res.data.orgId);
+              // commit('SET_ROLE_IDS', res.data.roleIds);
+              // commit('SET_ROLE_NAMES', res.data.roleNames);
+              // commit('SET_ACCOUNT_TYPE', res.data.accountType);
+              // commit('SET_USER_IMAGE', res.data.userImage);
               resolve(res)
             }).catch(error => {
               reject(error)

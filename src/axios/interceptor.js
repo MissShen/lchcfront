@@ -40,6 +40,7 @@ http.interceptors.request.use(function (config) {
   // 在发送请求之前设置统一token
   if (sessionStorage.getItem('token')) {
     config.headers['Authorization'] = sessionStorage.getItem('token')
+    config.headers['token'] = sessionStorage.getItem('token')
   }
   // 遮罩层加载效果处理
   if (config.loading != false) {

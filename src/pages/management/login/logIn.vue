@@ -28,16 +28,16 @@
                     <el-input v-model="ruleForm.passWord" type="passWord" name="userPsw" placeholder="密码"
                               @keyup.enter.native="submitForm('ruleForm')"></el-input>
                   </el-form-item>
-                  <el-form-item prop="validCode">
-                    <el-col :span="12" style="padding-right: 10px;">
-                      <i class="icon icon-wendang"></i>
-                      <el-input v-model="ruleForm.validCode" type="text" name="validCode" placeholder="验证码"
-                                @keyup.enter.native="submitForm('ruleForm')"></el-input>
-                    </el-col>
-                    <el-col :span="12">
-                      <img :src="validCodeImage" height="34" @click="getValidCode">
-                    </el-col>
-                  </el-form-item>
+                  <!--<el-form-item prop="validCode">-->
+                  <!--<el-col :span="12" style="padding-right: 10px;">-->
+                  <!--<i class="icon icon-wendang"></i>-->
+                  <!--<el-input v-model="ruleForm.validCode" type="text" name="validCode" placeholder="验证码"-->
+                  <!--@keyup.enter.native="submitForm('ruleForm')"></el-input>-->
+                  <!--</el-col>-->
+                  <!--<el-col :span="12">-->
+                  <!--<img :src="validCodeImage" height="34" @click="getValidCode">-->
+                  <!--</el-col>-->
+                  <!--</el-form-item>-->
                   <el-form-item style="padding-top:10px">
                     <el-button :loading="loading" type="primary" @click="submitForm('ruleForm')">登录</el-button>
                     <div v-if="showErrorMsg" class="orange" style="margin-top:5px; line-height:14px; text-align:center">
@@ -57,7 +57,7 @@
   import {mapGetters} from 'vuex'
   import router from 'src/router'
   import {validCode} from "src/axios/login/login";
-   import {uuid} from "src/utils";
+  import {uuid} from "src/utils";
 
   export default {
     name: 'logIn',
@@ -72,7 +72,6 @@
       ]),
     },
     data() {
-      alert('xxx')
       var checkName = (rule, value, callback) => {
         const val = value.trim();
         this.ruleForm.userName = val;  //去掉首尾误输入的空格
@@ -102,10 +101,10 @@
           ],
           passWord: [
             {validator: validatePass, trigger: 'blur'}
-          ],
-          validCode: [
-            {required: true, message: '验证码不能为空', trigger: 'blur'}
           ]
+          // validCode: [
+          //   {required: true, message: '验证码不能为空', trigger: 'blur'}
+          // ]
         },
         keyRules: {
           UserListKey: [
@@ -153,21 +152,20 @@
         noticeShow: false,
         loading: false,
       };
-
     },
     created() {
       this.metaList();
     },
     methods: {
-      getValidCode() {
-        this.validCodeKey=uuid();
-        validCode(this.validCodeKey).then(res => {
-          if (res.code == 200) {
-            this.ruleForm.uuid =this.validCodeKey;
-            this.validCodeImage = res.data
-          }
-        })
-      },
+      // getValidCode() {
+      //   this.validCodeKey=uuid();
+      //   validCode(this.validCodeKey).then(res => {
+      //     if (res.code == 200) {
+      //       this.ruleForm.uuid =this.validCodeKey;
+      //       this.validCodeImage = res.data
+      //     }
+      //   })
+
       getContent(description) {
         description = description.replace(/(\n)/g, "");
         description = description.replace(/(\t)/g, "");
@@ -177,15 +175,9 @@
         description = description.replace(/&nbsp;/ig, "");
         return description;
       },
-      handleNoticeView(id) {
-        this.isNoticeView = true;
-        this.$nextTick(function () {
-          this.$refs.noticeView.metaList(id)
-        })
-      },
-
       submitForm(formName) {
         this.showErrorMsg = false;
+        this.$router.push({path: '/IndexGeneral'})
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.loading = true;
@@ -198,8 +190,7 @@
               this.loading = false;
               this.$router.push({path: '/IndexGeneral'});
             }).catch((res) => {
-              this.getValidCode();
-              this.loading = false;
+               this.loading = false;
               if (res.code === "100") {
                 this.showErrorMsg = true;
                 this.errorMsg = res.message;
@@ -229,12 +220,13 @@
         return 'login' === sessionStorage.getItem('login');
       },
       metaList() {
-        this.getValidCode();
-        unLoginNoticeLimitList().then(res => {
-          this.resData = res.data;
-          0 === this.resData.pageNum ? this.resData.pageNum = 1 : null;
-        })
+        //this.getValidCode();
+        // unLoginNoticeLimitList().then(res => {
+        //   this.resData = res.data;
+        //   0 === this.resData.pageNum ? this.resData.pageNum = 1 : null;
+        // })
       }
-    },
   }
+  }
+
 </script>

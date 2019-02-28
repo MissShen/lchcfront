@@ -51,7 +51,7 @@ export function refreshToken() {
  */
 export function userPerms() {
   return http({
-    url: '/management/user/resource/list',
+    url: '/user/resource/list',
     loading: false,
     method: 'post'
   })

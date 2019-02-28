@@ -203,16 +203,3 @@ export function changePwd(dataForm) {
     }
   })
 }
-
-/**
- * 获取微信申请的临时token
- *
- * @author:
- * @date: 2018/7/10 15:46
- */
-export function getWeixinToken() {
-  return http({
-    url: '/management/user/weixin/token',
-    method: 'get',
-  })
-}

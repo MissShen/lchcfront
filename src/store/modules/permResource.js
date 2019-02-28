@@ -37,7 +37,4 @@ const permResource = {
   }
 };
 
-
-
-
 export default permResource

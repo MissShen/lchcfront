@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import store from 'src/store'
 
 import {baseRouterMap} from "src/router/baseRouterMap";
-import {demoMap} from 'src/router/demoRouter'  //demo路由
-import {managementMap} from 'src/router/managementRouter'  //综合管理路由
+import {demoMap} from 'src/router/demoRouter'
+import {managementMap} from 'src/router/managementRouter'
 import {isNotNull} from "../utils/validateUtil";
 
 Vue.use(Router)
@@ -40,7 +40,6 @@ export const routerWhite = ['/', '/logIn','/keyTransit', '/keyRegister','/IndexG
       next();
     }
   } else {
-    console.info(to, from, next)
     if (routerWhite.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
       next()
     } else {
