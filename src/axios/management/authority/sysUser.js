@@ -6,7 +6,7 @@ import http from 'src/axios/http'
  *
  * @param resData 分页数据
  * @param queryData 查询数据
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/27 20:15
  * @return:
  */
@@ -31,7 +31,7 @@ export function userList(resData, queryData) {
  * 查看用户
  *
  * @param id 用户id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 19:05
  * @return:
  */
@@ -48,7 +48,7 @@ export function userView(id) {
  * 新增用户
  *
  * @param sysUser 用户
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 19:05
  */
 export function userSave(sysUser) {
@@ -71,7 +71,7 @@ export function userAdd(sysUser) {
  * 修改用户
  *
  * @param sysUser 用户
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 19:06
  */
 export function userUpdate(sysUser) {
@@ -87,7 +87,7 @@ export function userUpdate(sysUser) {
  * 删除用户
  *
  * @param id 用户id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 19:02
  */
 export function userDel(id) {
@@ -105,7 +105,7 @@ export function userDel(id) {
  * 查询用户的角色列表
  *
  * @param id 用户id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/14 9:50
  */
 export function userRoleList(id) {
@@ -121,7 +121,7 @@ export function userRoleList(id) {
  *
  * @param id 用户id
  * @param resData 分页数据
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/19 19:13
  * @return:
  */
@@ -143,7 +143,7 @@ export function userRoleDefaultList(resData, id) {
  *
  * @param ridStr 角色id使用逗号拼接的字符串
  * @param uid 用id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/21 9:54
  */
 export function userRoleSave(ridStr, uid) {
@@ -159,7 +159,7 @@ export function userRoleSave(ridStr, uid) {
 /**
  * 登录用户个人信息
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/16 9:49
  */
 export function userInfo() {
@@ -172,7 +172,7 @@ export function userInfo() {
 /**
  * 查看图像
  *
- * @author: lixiaoyang
+ * @author:
  * @date: 2018/5/8 9:49
  */
 export function userPhoto(dataForm) {
@@ -189,7 +189,7 @@ export function userPhoto(dataForm) {
  *  用户重置密码
  *
  * @param dataForm 表单
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/16 9:50
  * @return:
  */
@@ -207,7 +207,7 @@ export function changePwd(dataForm) {
 /**
  * 获取微信申请的临时token
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/7/10 15:46
  */
 export function getWeixinToken() {

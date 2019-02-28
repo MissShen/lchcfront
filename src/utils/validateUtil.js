@@ -2,7 +2,7 @@
  * 封装 生产企业+中包装+大包装
  *
  * @param v
- * @author: zpf
+ * @author:
  * @date: 2018/6/14 13:25
  * @return:
  */
@@ -31,7 +31,7 @@ export function getPackHints(v1,v2,v3) {
  * 封装 规格包装  包材
  *
  * @param v
- * @author: zpf
+ * @author:
  * @date: 2018/6/14 13:25
  * @return:
  */
@@ -71,7 +71,7 @@ export function getSpecHints(v1,v2,v3,v4,v5) {
  * 验证数据是否为null
  *
  * @param value 要验证的数据
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/26 13:25
  * @return:  Boolean
  */
@@ -87,7 +87,7 @@ export function numberLineAZ(value) {
  * 验证输入的邮箱是否合法
  *
  * @param value 要验证的邮箱
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/26 13:26
  * @return:  Boolean
  */
@@ -100,7 +100,7 @@ export function isEMail(value) {
  * 验证输入的手机号是否合法
  *
  * @param value 要验证的手机号
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/26 13:26
  */
 export function isMobile(value) {
@@ -111,7 +111,7 @@ export function isMobile(value) {
  * 验证输入的电话号是否合法
  *
  * @param value 要验证的电话号
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/26 13:27
  * @return: Boolean
  */

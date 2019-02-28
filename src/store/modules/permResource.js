@@ -6,7 +6,7 @@ import {filterAsyncRouter} from "src/utils/perm";
 /**
  * 授权资源状态管理
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/27 20:01
  */
 const permResource = {

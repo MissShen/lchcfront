@@ -13,6 +13,7 @@
       </div>
       <ul class="login-menu">
         <li><router-link to="/" :class="getActiveNav('logIn')">网页首页</router-link></li>
+
       </ul>
     </div>
     <router-view/>
@@ -20,33 +21,26 @@
   </div>
 </template>
 <script>
-import TheFooter from 'src/components/TheFooter'
-import affiche from 'src/pages/management/login/affiche'
-import classroom from 'src/pages/management/login/classroom'
- import interact from 'src/pages/management/login/interact'
+
+  import TheFooter from 'src/components/TheFooter'
  import logIn from 'src/pages/management/login/logIn'
 
 export default {
   name: "layLogin",
   components: {
     TheFooter,
-    affiche,
-    classroom,
-    interact,
-     logIn
+    logIn
   },
   methods: {
-    getActiveNav(nav){
-    let arr = this.$route.path.split('/');
-    let tis = arr[1] || 'logIn';
-    return {
-      sav: nav === arr[1]
+    getActiveNav(nav) {
+      let arr = this.$route.path.split('/');
+      let tis = arr[1] || 'logIn';
+      return {
+        sav: nav === arr[1]
+      }
+
     }
-  },
-   updateThis(){
-     sessionStorage.setItem('flag','1');
-   }
-}
+  }
 }
 </script>
 

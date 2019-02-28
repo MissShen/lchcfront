@@ -11,7 +11,7 @@ import http from 'src/axios/http'
  *      资源类型=MENU,parentId!=null则查询二级菜单
  * @param resourceType 资源类型, 菜单:'MENU'  按钮:'BUTTON'
  *      资源类型=BUTTON, parentId!=null则查询子按钮
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 10:27
  * @return:
  */
@@ -37,7 +37,7 @@ export function resourceList(resData, queryData, parentId, resourceType) {
  * 查看指定资源
  *
  * @param id 资源id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 10:46
  * @return:
  */
@@ -53,7 +53,7 @@ export function resourceView(id) {
  * 新增资源
  *
  * @param sysResource 资源类型
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 10:44
  * @return:
  */
@@ -70,7 +70,7 @@ export function resourceSave(sysResource) {
  * 修改资源
  *
  * @param sysResource 资源
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 10:44
  * @return:
  */
@@ -87,7 +87,7 @@ export function resourceUpdate(sysResource) {
  *  删除指定资源
  *
  * @param id 资源id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 11:08
  * @return:
  */

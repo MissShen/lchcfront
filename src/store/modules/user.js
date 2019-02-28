@@ -56,7 +56,7 @@ const user = {
      * 用户登录
      *
      * @param loginForm 用户登录信息
-     * @author: JiaHaiGang
+     * @author:
      * @date: 2018/3/27 19:39
      */
     LoginUser({commit}, loginForm) {
@@ -181,7 +181,7 @@ const user = {
     /**
      * 拉取用户信息：权限列表
      *
-     * @author: JiaHaiGang
+     * @author:
      * @date: 2018/3/27 19:38
      */
     getUserPerms({commit}) {
@@ -240,7 +240,7 @@ const user = {
     /**
      * 用户登出
      *
-     * @author: JiaHaiGang
+     * @author:
      * @date: 2018/3/27 19:42
      */
     logoutUser({commit}) {
@@ -270,7 +270,7 @@ const user = {
      * 用户头像
      *
      * @param getPhoto 用户头像
-     * @author: lixiaoyang
+     * @author:
      * @date: 2018/5/9 16:13
      */
     getPhoto({commit}, blob) {

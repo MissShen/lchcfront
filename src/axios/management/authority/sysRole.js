@@ -6,7 +6,7 @@ import http from 'src/axios/http'
  *
  * @param resData  分页数据
  * @param queryData 查询数据
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 14:39
  */
 export function roleList(resData, queryData) {
@@ -28,7 +28,7 @@ export function roleList(resData, queryData) {
  * 查看角色
  *
  * @param id 角色id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 14:53
  */
 export function roleView(id) {
@@ -45,7 +45,7 @@ export function roleView(id) {
  *  新增角色
  *
  * @param sysRole 角色
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 14:53
  * @return:
  */
@@ -63,7 +63,7 @@ export function roleSave(sysRole) {
  * 修改角色
  *
  * @param sysRole 角色
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 14:53
  */
 export function roleUpdate(sysRole) {
@@ -80,7 +80,7 @@ export function roleUpdate(sysRole) {
  * 删除角色
  *
  * @param id 角色id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/13 14:39
  */
 export function roleDelete(id) {
@@ -96,7 +96,7 @@ export function roleDelete(id) {
 /**
  * 角色类型枚举列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/20 15:32
  */
 export function enumRoleTypeList() {
@@ -114,7 +114,7 @@ export function enumRoleTypeList() {
 /**
  * 获取操作用户的资源列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 13:46
  */
 export function userResourceList() {
@@ -130,7 +130,7 @@ export function userResourceList() {
  * 角色拥有的资源id列表
  *
  * @param id 角色id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/22 13:46
  * @return:
  */
@@ -148,7 +148,7 @@ export function roleResourceList(id) {
  *
  * @param rid 角色id
  * @param idStr 资源id使用逗号拼接的字符串
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/21 13:21
  */
 export function roleResourceSave(idStr, rid) {

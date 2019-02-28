@@ -118,7 +118,6 @@
   import {isNotNull} from "src/utils/validateUtil";
   import ProjectChoose from 'src/pages/management/project/project-choose'
   import HelpFrom from 'src/components/HelpFrom'
-  import {findCarTotal} from 'src/axios/trade/purchase/purchase'
 
   export default {
     name: "LayOut",

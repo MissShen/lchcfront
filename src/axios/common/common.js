@@ -4,7 +4,7 @@ import http from 'src/axios/http'
 /**
  * 机构类型枚举列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/20 15:31
  */
 export function enumOrgTypeList() {
@@ -19,7 +19,7 @@ export function enumOrgTypeList() {
 /**
  * 业务系统枚举列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/20 15:32
  */
 export function enumBusSysList() {
@@ -35,7 +35,7 @@ export function enumBusSysList() {
  *
  * @param resData 翻页数据
  * @param queryData 查询条件数据
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/16 10:45
  */
 export function catOrgList(resData, queryData) {

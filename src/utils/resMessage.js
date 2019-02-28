@@ -3,7 +3,7 @@ import {Message} from 'element-ui'
 /**
  * 基础提示信息配置项
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/9 11:32
  */
 function baseOptions(res, callback) {
@@ -129,7 +129,7 @@ function baseOptions(res, callback) {
             })
  ------------------------------------------------------------------------------------------------------------------------
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/9 11:30
  */
 export default function resMessage(res, callback, options) {

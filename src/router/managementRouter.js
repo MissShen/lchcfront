@@ -1,7 +1,6 @@
 const LayOut = r => require.ensure([], () => r(require('@/components/LayOut')),'base')
 
 // 管理中心 路由表
-
 export const managementMap = [
   {
     path: '/authority',
@@ -76,8 +75,7 @@ export const managementMap = [
         name: 'userInfo',
         meta: {title: '个人资料', hidden: true, perm: ['login']},
         component: r => require.ensure([], () => r(require('src/pages/management/user-manage/userInfo')),'manage')
-      },
-
+      }
     ]
   }
 ];

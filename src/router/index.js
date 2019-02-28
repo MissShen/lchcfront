@@ -9,7 +9,7 @@ import {isNotNull} from "../utils/validateUtil";
 
 Vue.use(Router)
 
-export const asyncRouterMap=managementMap.concat();
+export const asyncRouterMap=managementMap.concat(baseRouterMap,demoMap,managementMap);
 
 const router = new Router({
   routes: baseRouterMap
@@ -20,7 +20,7 @@ export default router;
 export const routerWhite = ['/', '/logIn','/keyTransit', '/keyRegister','/IndexGeneral', '/affiche', '/classRoom', '/interact', '/service',
   '/downLoad', '/contactUs', '/Error/401', '/Error/404', '/Error/500','/printTable']; // 白名单
 
-router.beforeEach((to, from, next) => {
+ router.beforeEach((to, from, next) => {
   if (sessionStorage.getItem('token')) {
     if (!isNotNull(store.getters.loginCode)) { // 判断当前用户是否已拉取完权限信息
       store.dispatch('getUserPerms').then(res => {
@@ -40,6 +40,7 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
+    console.info(to, from, next)
     if (routerWhite.indexOf(to.path) !== -1) { // 在免登录白名单，直接进入
       next()
     } else {

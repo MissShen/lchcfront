@@ -6,7 +6,7 @@ import {isNotNull} from "src/utils/validateUtil";
  *
  * @param perms 后端提供的权限信息
  * @param route 路由对象
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/27 20:08
  * @return: Boolean
  */
@@ -61,7 +61,7 @@ function hasPermission(perms, route) {
 /**
  * 递归过滤权限路由
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/27 20:02
  * @return: Boolean
  */

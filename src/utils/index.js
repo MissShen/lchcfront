@@ -41,7 +41,7 @@ export function treeDataTranslate(data, id = 'id', pid = 'parentId') {
  *
  * @param array 数组
  * @param value 目标元素
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/28 13:44
  * @return:  Boolean
  */
@@ -80,7 +80,7 @@ export function getSessions() {
  * 一个不隐藏则为不隐藏 即 展示出来
  *
  * @param route
- * @author: JiaHaiGang
+ * @author:
  */
 export function childNotHidden(route) {
   return route.some(item => {
@@ -96,7 +96,7 @@ export function childNotHidden(route) {
  * 判断路由是否显示
  *
  * @param router 路由对象
- * @author: JiaHaiGang
+ * @author:
  */
 export function navNotHidden(router) {
   // 设置隐藏则直接返回隐藏=true

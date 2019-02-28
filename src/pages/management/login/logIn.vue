@@ -1,6 +1,5 @@
 <template>
   <div>
-    <notice-view-from v-if="isNoticeView" ref="noticeView"></notice-view-from>
     <div class="login-main">
       <div class="slogan">
         <div class="key-login">
@@ -60,7 +59,6 @@
   import {validCode} from "src/axios/login/login";
    import {uuid} from "src/utils";
    import {
-    SetUserCertList,
     GetDateNotBefore,
     SignedData,
     VerifyUserPIN,
@@ -70,12 +68,12 @@
     GetDateNotAfter,
     VerifySignedData
   } from "src/assets/XTXSAB"
-  import {CERT_OID_NOT_BEFORE, CERT_OID_NOT_AFTER, CERT_TYPE_HARD} from "src/assets/XTXSAB"
+  import {CERT_OID_NOT_BEFORE, CERT_OID_NOT_AFTER} from "src/assets/XTXSAB"
 
   export default {
     name: 'logIn',
     components: {
-      noticeViewFrom
+
     },
     computed: {
       ...mapGetters([
@@ -86,6 +84,7 @@
       ]),
     },
     data() {
+      alert('xxx')
       var checkName = (rule, value, callback) => {
         const val = value.trim();
         this.ruleForm.userName = val;  //去掉首尾误输入的空格

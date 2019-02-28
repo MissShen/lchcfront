@@ -16,7 +16,7 @@ export function userLogin(data) {
 /**
  * 获取验证码
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/6/29 9:56
  */
 export function validCode(uuid) {
@@ -32,7 +32,7 @@ export function validCode(uuid) {
 /**
  * 刷新token
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/4/11 9:24
  */
 export function refreshToken() {
@@ -46,7 +46,7 @@ export function refreshToken() {
 /**
  * 获取用户权限列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/27 19:36
  */
 export function userPerms() {

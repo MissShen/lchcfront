@@ -4,7 +4,7 @@ import http from 'src/axios/http'
 /**
  * 用户拥有的快捷菜单列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/19 19:39
  */
 export function hasMenuList() {
@@ -18,7 +18,7 @@ export function hasMenuList() {
 /**
  * 用户不拥有的快捷菜单列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/19 19:39
  */
 export function notHasMenuList(resData) {
@@ -38,7 +38,7 @@ export function notHasMenuList(resData) {
  * 保存快捷菜单
  *
  * @param idStr 快捷菜单id用逗号拼接的字符串
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/20 9:49
  * @return:
  */
@@ -56,7 +56,7 @@ export function shortcutSave(idStr) {
  * 用户删除快捷菜单
  *
  * @param id 快捷菜单id
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/20 11:25
  */
 export function shortcutDelete(id) {

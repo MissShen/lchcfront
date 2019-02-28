@@ -115,10 +115,8 @@
   import {mapGetters} from 'vuex'
   import {busSysList} from "src/axios/management/authority/headMenu";
   import {ArrayContains, getSessions, navNotHidden} from "src/utils";
-  import {isNotNull} from "src/utils/validateUtil";
   import ProjectChoose from 'src/pages/management/project/project-choose'
   import HelpFrom from 'src/components/HelpFrom'
-  import {findCarTotal} from 'src/axios/trade/purchase/purchase'
 
   export default {
     name: "LayOut",
@@ -187,12 +185,6 @@
     },
     methods: {
       navNotHidden,
-      activeNav(idx) {
-        return {
-          active: idx === this.activeIdx,
-          related: idx === 'SUPERVISE' || idx === 'MANAGEMENT'
-        };
-      },
       getCurrentMenu(cur){
         const _cur = this.$route.matched[this.$route.matched.length-1].meta.title;
         return cur === _cur;
@@ -240,18 +232,6 @@
       },
       goLogin() {
         this.$router.push({path: '/'});
-      },
-      shoppingCar(){
-        this.$nextTick(() => {
-          /**查找角色和购物车主单ID*/
-          findCarTotal("0").then(res => {
-            if(res.data != undefined) {
-              this.purchaseId = res.data.purchaseId,
-                this.roleCode = res.data.roleCode
-              this.$router.push("/trade/manage/buyerrole/medicineShoppingList/" + this.purchaseId)
-            }
-          })
-        })
       },
       handleHelp() {
         this.HelpFrom = true;

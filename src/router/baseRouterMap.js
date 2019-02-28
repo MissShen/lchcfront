@@ -97,7 +97,7 @@
  * 无权限路由表
  *  该路由表中的路由对象均不需要任何权限即可访问
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/3/28 17:01
  */
 export const baseRouterMap = [
@@ -105,7 +105,7 @@ export const baseRouterMap = [
     path: '/',
     name: 'logIn',
     meta: {title: '登录', perm:['none']},
-    redirect:"/logIn",
+    //redirect:"/logIn",
     component: r => require.ensure([], () => r(require('src/pages/management/login/layLogin')),'manage'),
     children: [
 

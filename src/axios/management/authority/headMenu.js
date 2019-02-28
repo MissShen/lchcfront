@@ -3,7 +3,7 @@ import http from 'src/axios/http'
 /**
  * 业务系统列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/5/21 10:25
  */
 export function busSysList() {
@@ -19,7 +19,7 @@ export function busSysList() {
  * 　获取系统详情
  *
  * @param id 系统ID
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/5/21 10:24
  */
 export function busSysView(id) {
@@ -35,7 +35,7 @@ export function busSysView(id) {
 /**
  * 项目列表
  *
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/5/21 10:24
  */
 export function projectList() {
@@ -52,7 +52,7 @@ export function projectList() {
  *
  * @param projectId 项目ID
  * @param projectName 项目名称
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/5/21 10:23
  */
 export function projectSave(projectId, projectName) {
@@ -73,7 +73,7 @@ export function projectSave(projectId, projectName) {
  *
  * @param pageNum 当前页码
  * @param pageSize 每页条数
- * @author: JiaHaiGang
+ * @author:
  * @date: 2018/6/8 14:45
  */
 export function operationLogList(pageNum, pageSize) {
